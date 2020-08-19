@@ -1,6 +1,5 @@
 package com.MTxInternship.Project.API;
 
-import com.MTxInternship.Project.ProjectApplication;
 import com.MTxInternship.Project.Model.User;
 import com.MTxInternship.Project.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/login")
-    @CrossOrigin(origins = "http://localhost:4200")
+        @CrossOrigin(origins = "http://d2tz8yd01soxbm.cloudfront.net")
     @ResponseBody
     public User loginUser(@RequestBody User user) throws Exception {
         String email=user.getEmail();
@@ -31,6 +30,8 @@ public class UserController {
             return u;
         }
     }
+    //@CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://d2tz8yd01soxbm.cloudfront.net")
     @RequestMapping(method= RequestMethod.GET, value = "/Users")
     public List<User> getUsers(){
         return userService.getUsers();
@@ -41,7 +42,8 @@ public class UserController {
         return userService.getUserByID(id);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    //@CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://d2tz8yd01soxbm.cloudfront.net")
     @RequestMapping(method= RequestMethod.POST, value = "/register")
     @ResponseBody
     public void addUser (@RequestBody User u) throws Exception {
@@ -49,18 +51,14 @@ public class UserController {
         if(email!=null) {
             User userWithEmail = userService.getUserByEmailID(email);
             if (userWithEmail == null) {
-                System.out.println(u.getFirstName());
-                System.out.println(u.getEmail());
-                System.out.println(u.getAddress().getStreet2());
-                System.out.println(u.getAddress().getCity());
-                System.out.println(u.getAddress().getStreet2());
                 userService.addUser(u);
             }
             else
                 throw new Exception("already registered");
         }
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+    //@CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://d2tz8yd01soxbm.cloudfront.net")
     @RequestMapping(method= RequestMethod.PUT, value="/updateUser/{id}")
     public void updateUser(@RequestBody User u, @PathVariable UUID id) {
         userService.updateUser(u, id);

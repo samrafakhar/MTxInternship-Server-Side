@@ -16,7 +16,8 @@ import java.util.UUID;
 public class AccountService {
     @Autowired
     private AccountRepository accountRepository;
-    /*public List<Account> getAccounts(){
+
+    public List<Account> getAccounts(){
         List<Account> accounts = new ArrayList<>();
         Iterable<Account> accountsAll = accountRepository.findAll();
         for (Account account : accountsAll) {
@@ -24,7 +25,7 @@ public class AccountService {
         }
         return accounts;
         //return accountRepository.findAll();
-    }*/
+    }
 
     @PostConstruct
     public void something(){
@@ -43,9 +44,9 @@ public class AccountService {
 
     public List<Account> findAllByOwner(User user){
         Iterable<Account> accountsAll = accountRepository.findAllByOwner(user);
-        for (Account account : accountsAll) {
-            System.out.println(account.getAccountID());
-        }
+        //for (Account account : accountsAll) {
+            //System.out.println(account.getAccountID());
+        //}
         return accountRepository.findAllByOwner(user);
     }
 }

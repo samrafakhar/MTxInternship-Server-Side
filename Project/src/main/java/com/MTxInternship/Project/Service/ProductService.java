@@ -18,6 +18,9 @@ public class ProductService {
     public Product getProductByID(UUID id) {
         return productRepository.findByProductID(id);
     }
+    public Product getProductByName(String id) {
+        return productRepository.findByProductName(id);
+    }
     public void addProduct (Product u) {
         productRepository.save(u);
     }

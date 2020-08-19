@@ -13,7 +13,8 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    //@CrossOrigin(origins = "http://localhost:4200")
+        @CrossOrigin(origins = "http://d2tz8yd01soxbm.cloudfront.net")
     @RequestMapping(method= RequestMethod.GET, value = "/Products")
     public List<Product> getProducts(){
         return productService.getProducts();

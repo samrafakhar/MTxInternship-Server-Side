@@ -16,8 +16,8 @@ public class Account {
     private String name;
     private String type;
     private String status;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
+    //@JsonIgnore
     private User owner;
     private String phone;
     private String fax;

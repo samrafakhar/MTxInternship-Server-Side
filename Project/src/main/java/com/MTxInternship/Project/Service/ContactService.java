@@ -1,9 +1,14 @@
 package com.MTxInternship.Project.Service;
+import com.MTxInternship.Project.Model.Account;
+import com.MTxInternship.Project.Model.Address;
 import com.MTxInternship.Project.Model.Contact;
+import com.MTxInternship.Project.Repository.AccountRepository;
 import com.MTxInternship.Project.Repository.ContactRepository;
+import org.hibernate.id.UUIDGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -11,6 +16,8 @@ import java.util.UUID;
 public class ContactService {
     @Autowired
     private ContactRepository contactRepository;
+    @Autowired
+    private AccountRepository accountRepository;
     public List<Contact> getAccountContacts(UUID ID){
         return contactRepository.findAllByAccount_AccountID(ID);
     }
@@ -30,5 +37,8 @@ public class ContactService {
     {
         Contact newContact=new Contact(id, c.getFirstName(), c.getLastName(), c.getTitle(), c.getEmail(), c.getPhone(), c.getFunctionalArea(), c.getAddress(), id, id, c.getTradesFor());
         contactRepository.save(newContact);
+    }
+    public List<Contact> getContacts() {
+        return contactRepository.findAll();
     }
 }

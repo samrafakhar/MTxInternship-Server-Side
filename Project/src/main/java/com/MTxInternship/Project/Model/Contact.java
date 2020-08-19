@@ -28,8 +28,8 @@ public class Contact {
         this.address = Address;
     }
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
+    //@JsonIgnore
     private Account account;
     public Contact() { }
     public Contact(UUID ID, String firstName, String lastName, String title, String email, String phone,  String functionalArea, Address address, UUID accID, UUID oid, String tradesfor) {

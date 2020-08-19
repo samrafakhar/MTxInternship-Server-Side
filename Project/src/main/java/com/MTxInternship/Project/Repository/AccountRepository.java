@@ -16,5 +16,7 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
 
     void deleteAccountByAccountID(UUID id);
 
+
+    List<Account> findAllByName (String name);
     //Account getOne(UUID id);
 }

@@ -36,7 +36,7 @@ public class ProteinService {
     //public List<Protein> findProteinsByProduct(UUID id){return proteinRepository.findProteinsByProduct_ProductID(id);}
 
     public List<String> findAllByProduct(Product product){
-        System.out.println("findAllByProduct");
+        //System.out.println("findAllByProduct");
         Iterable<Protein> accountsAll = proteinRepository.findAllByProduct(product);
         List<String> proteinList=new ArrayList<>();
         for (Protein account : accountsAll) {

@@ -24,19 +24,22 @@ public class ProteinController {
     //   return proteinService.getProteinsList(id);
     //}
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    //@CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://d2tz8yd01soxbm.cloudfront.net")
     @RequestMapping(method= RequestMethod.GET, value = "/Proteins")
     public List<Protein> getProteins(){
         return proteinService.getProteins();
     }
 
-    /*@CrossOrigin(origins = "http://localhost:4200")
+    /*//@CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://d2tz8yd01soxbm.cloudfront.net")
     @RequestMapping(method= RequestMethod.GET, value = "/Proteins")
     public List<Protein> getProteins0fProduct(){
         return proteinService.getProteins();
     }*/
 
-    /*@CrossOrigin(origins = "http://localhost:4200")
+    /*//@CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://d2tz8yd01soxbm.cloudfront.net")
     @RequestMapping(method= RequestMethod.GET, value = "/getProteinsOfProduct/{id}")
     public List<Protein> getProteinsByProductID(@PathVariable UUID id){
         List<Protein> p=proteinService.findProteinsByProduct(id);
@@ -67,10 +70,11 @@ public class ProteinController {
         proteinService.deleteProtein(id);
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
-    @RequestMapping(method= RequestMethod.GET, value = "/ProteinsOfAProduct/{id}")
-    public List<String>loadAllProteinsByProduct(@PathVariable UUID id){
-        Product u=productService.getProductByID(id);
+    //@CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "http://d2tz8yd01soxbm.cloudfront.net")
+    @RequestMapping(method= RequestMethod.GET, value = "/ProteinsOfAProduct/{name}")
+    public List<String>loadAllProteinsByProduct(@PathVariable String name){
+        Product u=productService.getProductByName(name);
         return proteinService.findAllByProduct(u);
     }
 }
